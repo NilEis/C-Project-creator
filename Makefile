@@ -5,7 +5,7 @@ OBJ = obj
 OBJS = $(patsubst $(SRC)/%.c, $(OBJ)/%.o, $(SRCS))
 DFLAGS = -g3 -Wall
 FLAGS = -O3 -Wall
-LFLAGS = 
+LFLAGS = -static
 BINDIR = bin
 BIN = $(BINDIR)/c_create_project
 

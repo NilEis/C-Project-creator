@@ -16,7 +16,7 @@ char MAKE[] =
     "OBJS = $(patsubst $(SRC)/%%.c, $(OBJ)/%%.o, $(SRCS))\n"
     "DFLAGS = -g3 -Wall\n"
     "FLAGS = -O3 -Wall\n"
-    "LFLAGS = \n"
+    "LFLAGS = -static\n"
     "BINDIR = bin\n"
     "BIN = $(BINDIR)/%s\n" /*Insert name*/
     "\n"
