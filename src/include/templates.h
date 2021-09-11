@@ -1,7 +1,7 @@
 #ifndef TEMPLATES_H
 #define TEMPLATES_H
 
-extern char MAKE[];
-extern char MAIN[];
+extern const char MAKE[];
+extern const char MAIN[];
 
 #endif // TEMPLATES_H

@@ -1,6 +1,6 @@
 #include "include/templates.h"
 
-char MAIN[] =
+const char MAIN[] =
     "#include <stdio.h>\n"
     "\n"
     "int main(int argc, char const *argv[])\n"
@@ -8,7 +8,7 @@ char MAIN[] =
     "\tprintf(\"Hello, World!\\n\");\n"
     "}\n";
 
-char MAKE[] =
+const char MAKE[] =
     "CC = gcc\n"
     "SRC = src\n"
     "SRCS = $(wildcard $(SRC)/*.c)\n"
@@ -16,7 +16,7 @@ char MAKE[] =
     "OBJS = $(patsubst $(SRC)/%%.c, $(OBJ)/%%.o, $(SRCS))\n"
     "DFLAGS = -g3 -Wall\n"
     "FLAGS = -O3 -Wall\n"
-    "LFLAGS = -static\n"
+    "LFLAGS = -O3 -static\n"
     "BINDIR = bin\n"
     "BIN = $(BINDIR)/%s\n" /*Insert name*/
     "\n"
