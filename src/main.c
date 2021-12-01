@@ -13,6 +13,8 @@ int main(int argc, char const *argv[])
     char name[50];
     FILE *main;
     FILE *make;
+    FILE *obj_gitkeep;
+    FILE *bin_gitkeep;
     printf("Project-name:\n");
     get_string(name, 50);
 #if defined(unix) || defined(__unix__) || defined(__unix)
@@ -52,9 +54,15 @@ int main(int argc, char const *argv[])
 #endif
     main = fopen("src/main.c", "w");
     make = fopen("Makefile", "w");
+    obj_gitkeep = fopen("obj/.gitkeep", "w");
+    bin_gitkeep = fopen("bin/.gitkeep", "w");
     fprintf(main, MAIN);
     fprintf(make, MAKE, name);
+    fprintf(obj_gitkeep, "\0");
+    fprintf(bin_gitkeep, "\0");
     fclose(main);
     fclose(make);
+    fclose(obj_gitkeep);
+    fclose(bin_gitkeep);
     return 0;
 }
