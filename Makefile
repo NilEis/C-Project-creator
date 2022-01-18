@@ -4,8 +4,7 @@ SRCS = $(wildcard $(SRC)/*.c)
 OBJ = obj
 OBJS = $(patsubst $(SRC)/%.c, $(OBJ)/%.o, $(SRCS))
 DFLAGS = -g3 -Wall
-FLAGS-SIZE = -ffunction-sections -fdata-sections -Wl,--gc-sections -fno-stack-protector -s  -fno-unwind-tables -fno-asynchronous-unwind-tables -fno-math-errno -fmerge-all-constants -fno-ident -fsingle-precision-constant 
-FLAGS = -Wall $(FLAGS-SIZE)
+FLAGS = -Ofast -Wall -s
 LFLAGS = -static
 BINDIR = bin
 BIN = $(BINDIR)/c_create_project
@@ -27,12 +26,12 @@ endif
 all: $(BIN)
 
 $(BIN): $(OBJS)
-	$(CC) $(FLAGS) $(LFLAGS) $(OBJS) -o $@
+	$(CC) $(OBJS) $(FLAGS) $(LFLAGS) -o $@
 
 $(OBJ)/%.o: $(SRC)/%.c
 	$(CC) $(FLAGS) -c $< -o $@
 
-.PHONY : clean
+.PHONY : clean run
 
 ifeq ($(OS),Windows_NT)
 OBJS := $(subst /,\, $(OBJS))
@@ -40,3 +39,6 @@ BIN := $(subst /,\, $(BIN))
 endif
 clean:
 	$(RM) $(BIN).* $(OBJS)
+
+run: all
+	$(BIN)
