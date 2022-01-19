@@ -58,8 +58,8 @@ int main(int argc, char const *argv[])
     bin_gitkeep = fopen("bin/.gitkeep", "w");
     fprintf(main, MAIN);
     fprintf(make, MAKE, name);
-    fprintf(obj_gitkeep, "\0");
-    fprintf(bin_gitkeep, "\0");
+    fwrite("", 1, 0, obj_gitkeep);
+    fwrite("", 1, 0, bin_gitkeep);
     fclose(main);
     fclose(make);
     fclose(obj_gitkeep);
