@@ -3,9 +3,21 @@
 const char MAIN[] =
     "#include <stdio.h>\n"
     "\n"
+    "static void cleanup(void);\n"
     "int main(int argc, char const *argv[])\n"
     "{\n"
     "\tprintf(\"Hello, World!\\n\");\n"
+    "}\n"
+    "\n"
+    "static void cleanup(void)\n"
+    "{\n"
+    "\t/*#-------------------------------------#*/\n"
+    "\t/*| ################################### |*/\n"
+    "\t/*| ##                               ## |*/\n"
+    "\t/*| ##   Replace with cleanup code   ## |*/\n"
+    "\t/*| ##                               ## |*/\n"
+    "\t/*| ################################### |*/\n"
+    "\t/*#-------------------------------------#*/\n"
     "}\n";
 
 const char MAKE[] =
@@ -52,5 +64,4 @@ const char MAKE[] =
     "	$(RM) $(BIN).* $(OBJS)\n"
     "\n"
     "run: all\n"
-	"   $(BIN)\n"
-    ;
+    "   $(BIN)\n";
